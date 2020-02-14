@@ -1,0 +1,73 @@
+[02-Jan-2020 13:20:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:20:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:20:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:20:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:20:07 UTC] PHP Notice:  Undefined variable: course in /home/dev247/public_html/c00504/launch/globals.php on line 3
+[02-Jan-2020 13:20:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function GET_COURSE_BY_ID() on null in /home/dev247/public_html/c00504/launch/globals.php:3
+Stack trace:
+#0 /home/dev247/public_html/c00504/launch/index.php(2): include_once()
+#1 {main}
+  thrown in /home/dev247/public_html/c00504/launch/globals.php on line 3
+[02-Jan-2020 13:20:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:20:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:20:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:20:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:20:08 UTC] PHP Notice:  Undefined variable: course in /home/dev247/public_html/c00504/launch/globals.php on line 3
+[02-Jan-2020 13:20:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function GET_COURSE_BY_ID() on null in /home/dev247/public_html/c00504/launch/globals.php:3
+Stack trace:
+#0 /home/dev247/public_html/c00504/launch/index.php(2): include_once()
+#1 {main}
+  thrown in /home/dev247/public_html/c00504/launch/globals.php on line 3
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:25:00 UTC] PHP Fatal error:  Uncaught Error: Class 'Courses' not found in /home/dev247/public_html/c00504/config.php:76
+Stack trace:
+#0 /home/dev247/public_html/c00504/launch/globals.php(2): include_once()
+#1 /home/dev247/public_html/c00504/launch/index.php(2): include_once('/home/dev247/pu...')
+#2 {main}
+  thrown in /home/dev247/public_html/c00504/config.php on line 76
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:25:00 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:25:00 UTC] PHP Fatal error:  Uncaught Error: Class 'Courses' not found in /home/dev247/public_html/c00504/config.php:76
+Stack trace:
+#0 /home/dev247/public_html/c00504/launch/globals.php(2): include_once()
+#1 /home/dev247/public_html/c00504/launch/index.php(2): include_once('/home/dev247/pu...')
+#2 {main}
+  thrown in /home/dev247/public_html/c00504/config.php on line 76
+[02-Jan-2020 13:25:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:25:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:25:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:25:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:25:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:25:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:25:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:25:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:29:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:29:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:29:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:29:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:29:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:29:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:29:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:29:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:31:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:31:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:31:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:31:07 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:31:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:31:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:31:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:31:08 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:35:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADODB_Cache_File has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 233
+[02-Jan-2020 13:35:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 327
+[02-Jan-2020 13:35:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2851
+[02-Jan-2020 13:35:58 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3869
+[02-Jan-2020 13:35:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADOConnection has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 323
+[02-Jan-2020 13:35:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 2847
+[02-Jan-2020 13:35:59 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; ADORecordSet_array has a deprecated constructor in /home/dev247/public_html/c00504/adodb/adodb.inc.php on line 3865
+[02-Jan-2020 15:09:18 UTC] PHP Warning:  Use of undefined constant APP_NAME - assumed 'APP_NAME' (this will throw an Error in a future version of PHP) in /home/dev247/public_html/c00504/launch/index.php on line 14
+[02-Jan-2020 15:09:39 UTC] PHP Warning:  Use of undefined constant APP_NAME - assumed 'APP_NAME' (this will throw an Error in a future version of PHP) in /home/dev247/public_html/c00504/launch/index.php on line 14

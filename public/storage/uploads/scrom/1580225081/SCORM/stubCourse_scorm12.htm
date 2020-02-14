@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+<script type="text/javascript">
+var stubVersionLabel = "SPSPV1.1";
+var senderOrigin = null;
+var frameRef = null;
+var holderFrameRef = null;
+var launchURL = null;
+var param_stubVersion = 'spsp_version';
+var param_stubOrigin = 'spsp_origin';
+var param_stubMode = 'spsp_mode';
+var param_stubModeVersion = 'spsp_mode_version';
+var debug = false;
+var loaded = false;
+var error_none = '0';
+var error_actionUnrecognized = '-1';
+var error_actionBeforeStart = '-2';
+var error_actionAfterFinish = '-3';
+var error_messageFormat = '-4';
+
+/* IE8 polyfills */
+!window.addEventListener&&function(e,t,n,r,i,s,o){e[r]=t[r]=n[r]=function(e,t){var n=this;o.unshift([n,e,t,function(e){e.currentTarget=n,e.preventDefault=function(){e.returnValue=!1},e.stopPropagation=function(){e.cancelBubble=!0},e.target=e.srcElement||n,t.call(n,e)}]),this.attachEvent("on"+e,o[0][3])},e[i]=t[i]=n[i]=function(e,t){for(var n=0,r;r=o[n];++n)if(r[0]==this&&r[1]==e&&r[2]==t)return this.detachEvent("on"+e,o.splice(n,1)[0][3])},e[s]=t[s]=n[s]=function(e){return this.fireEvent("on"+e.type,e)}}(Window.prototype,HTMLDocument.prototype,Element.prototype,"addEventListener","removeEventListener","dispatchEvent",[])
+if (typeof Array.prototype.forEach !== 'function') {
+    Array.prototype.forEach = function(callback, context) {
+        for (var i = 0; i < this.length; i++) {
+            callback.apply(context, [ this[i], i, this ]);
+        }
+    };
+}
+  
+function findAPI(win) {
+    var findAPITries = 0;
+    while ((win.API == null) && (win.parent != null)) {
+        findAPITries++;
+        if (findAPITries > 7) {
+            return null;
+        }
+        win = win.parent;
+    }
+    return win.API;
+}
+
+function getAPI() {
+    var theAPI = findAPI(window);
+    if ((theAPI == null) && (window.opener != null) && (typeof(window.opener) != "undefined")) {
+        theAPI = findAPI(window.opener);
+    }
+    return theAPI;
+}
+
+function queryStringToJSON() {
+    var params = location.search.slice(1);
+    while (params.length > 0 && params.charAt(0) == '?') {
+        params = params.slice(1);
+    }
+    var pairs = params.split('&');
+    
+    var result = {};
+
+    pairs.forEach(function(pair) {
+        pair = pair.split('=');
+        result[pair[0].toLowerCase()] = decodeURIComponent(pair[1] || '');
+    });
+
+    return JSON.parse(JSON.stringify(result));
+}
+
+function dataFromLMSToJSON(dataFromLMS) {
+    var pairs = dataFromLMS.split('||');
+    var result = {};
+    
+    pairs.forEach(function(pair) {
+        pair = pair.split('=');
+        result[pair[0].toLowerCase()] = pair[1] || '';
+    });
+    
+    return JSON.parse(JSON.stringify(result));
+}
+
+var queryString = queryStringToJSON();
+var myAPI = getAPI();
+
+function getFrameRef() {
+    if (frameRef === null) {
+        frameRef = document.getElementById('spsp_contentframe');
+    }
+    return frameRef;
+}
+
+function loadFrame(url) {
+    getFrameRef().src = url;
+}
+
+function loadHolderFrame(url) {
+    holderFrameRef = document.getElementById('spsp_apiholder');
+    holderFrameRef.src = url;
+}
+
+function loadPage() {
+    
+    if (loaded) return;
+    loaded = true;
+    if (myAPI == null) {
+        alert("There was no LMS to record information to.");
+        return;
+    }
+    
+    debug = (queryString.debug === 'true');
+    launchURL = queryString.olsa_endpoint;
+
+    // Following block handles launch in new window from summary page
+    // Note in particular that LMSInitialize has already been called
+    // in this case, and should not be called again
+    if (queryString.launchurl && queryString.launchurl != null) {
+        sessionStorage.clear();
+        launchURL = queryString.launchurl;
+        loadFrame(launchURL);
+        window.removeEventListener("message", receiveMessage);
+        window.addEventListener("message", receiveMessage);
+        return;
+    }
+
+    // Placement of this block is critical, since we only want to call LMSInitialize once
+    if (myAPI.LMSInitialize("") == "false") {
+        myAPI = null;
+        alert("LMS Initialize failed");
+        return;
+    }
+    
+    var dataFromLMS = dataFromLMSToJSON(myAPI.LMSGetValue('cmi.launch_data'));
+    launchURL = (launchURL || dataFromLMS.olsa_endpoint);
+
+	if (queryString.debug) {
+		debug = (queryString.debug === 'true');
+	} else {
+		debug = (dataFromLMS.debug === 'true');
+	}
+	
+    if (getFrameRef().src.indexOf(launchURL) < 0) {
+        sessionStorage.clear();
+        debugOut('customer id: ' + (queryString.customerid || dataFromLMS.customerid));
+        debugOut('course id: ' + (queryString.course_id || dataFromLMS.course_id));
+        debugOut('endpoint: ' + launchURL);
+        var userId = myAPI.LMSGetValue('cmi.core.student_id');
+        debugOut('student id: ' + userId);
+        var userName = myAPI.LMSGetValue('cmi.core.student_name');
+        debugOut('student name: ' + userName);
+        var params = location.search;
+        while (params.length > 1 && params.charAt(1) == '?') {
+            params = params.slice(1);
+        }
+        launchURL += params;
+        launchURL += getMissingParams(dataFromLMS);
+        /* Covers IE8 deficiencies */
+        var win = this.document.defaultView || this.document.parentWindow;
+        if (!win.location.origin) {
+            win.location.origin = win.location.protocol + "//" + win.location.hostname + (win.location.port ? ':' + win.location.port: '');
+        }
+        
+        var lstat = myAPI.LMSGetValue('cmi.core.lesson_status')
+		if (lstat == "not attempted") {
+			myAPI.LMSSetValue("cmi.core.lesson_status", "incomplete")
+		}  /*SPT-2871*/
+        
+        launchURL += "&" + param_stubOrigin + "=" + encodeURIComponent(win.location.origin);
+        launchURL += "&" + param_stubVersion + "=" + stubVersionLabel;
+        launchURL += "&" + param_stubMode + "=scorm";
+        launchURL += "&" + param_stubModeVersion + "=1.2";
+        launchURL += "&student_id=" + userId;
+        launchURL += "&student_name=" + userName;
+        launchURL += "&spsp_lesson_status=" + myAPI.LMSGetValue('cmi.core.lesson_status');
+        launchURL += "&spsp_entry=" + myAPI.LMSGetValue('cmi.core.entry');
+        loadFrame(launchURL);
+        window.removeEventListener("message", receiveMessage);
+        window.addEventListener("message", receiveMessage);
+    }
+}
+
+function receiveMessage(e)
+{
+    var error = null;
+    var errortext = null;
+    var id = null;
+    var action = null;
+    var data = null;
+    var return_data = null;
+    
+    if (e.data && e.data.hasOwnProperty('request')) {
+        // ignore messages that may be generated by Chrome/developer tools
+        return;
+    }
+    
+    if (e.data) {
+        data = JSON.parse(e.data);
+    }
+    
+    if (data != null && data.hasOwnProperty('spsp_action')) {
+        action = data.spsp_action.toLowerCase();
+    }
+    
+    debugOut('Received message from ' + e.origin + ': ' + e.data);
+    
+    senderOrigin = sessionStorage.getItem('senderOrigin');
+    
+    // Once sender origin is provided through sync call, ignore any non-matching origin
+    if (senderOrigin != null && e.origin != senderOrigin) {
+        if (action == null || action != 'launchnewwindow') {
+            debugOut('origin did not match expected sender origin');
+            return;
+        }
+    }
+    
+    // If no sender origin has been provided, and this isn't a sync message, reject it
+    if (senderOrigin == null && action == null) {
+        debugOut('received unrecognized message from unknown sender');
+        return;
+    }
+    
+    if (data.hasOwnProperty('spsp_id')) {
+        id = data.spsp_id;
+    }
+    
+    if (action == null) {
+        // no action element in data structure, ignore
+        return;
+    }
+
+    if (action == 'launchnewwindow') {
+        var launchUrl = data.url;
+        var args = data.args;
+        var stubUrl = this.location.href + '&launchUrl=' + encodeURIComponent(launchUrl);
+        var stubWindowName = 'spsp_stub';
+        launchUrl += '&spsp_summarypage=true';
+        if (args != null) {
+            launchUrl += '&spsp_windowargs=' + args;
+            loadHolderFrame(launchUrl);
+        } else {
+            loadHolderFrame(launchUrl);
+        }
+        return;
+    } else if (action == 'start') {
+        if (sessionStorage.getItem('finished') == 'true') {
+            error = error_actionAfterFinish;
+        } else {
+            debugOut('received start message, setting sender origin');
+            senderOrigin = e.origin;
+            sessionStorage.setItem('senderOrigin', senderOrigin);
+            sessionStorage.setItem('started', 'true');
+            error = error_none;
+            errortext = 'Back atcha!';
+        }
+    } else if (action == 'get') {
+        if (sessionStorage.getItem('started') == null) {
+            error = error_actionBeforeStart;
+        } else if (sessionStorage.getItem('finished') == 'true') {
+            error = error_actionAfterFinish;
+        } else if (!data.hasOwnProperty('spsp_data')
+                || !data.spsp_data.hasOwnProperty('key')) {
+            error = error_messageFormat;
+        } else {
+            debugOut('received get message');
+            return_data = myAPI.LMSGetValue(data.spsp_data.key);
+            error = myAPI.LMSGetLastError();
+        }
+    } else if (action == 'put') {
+        if (sessionStorage.getItem('started') == null) {
+            error = error_actionBeforeStart;
+        } else if (sessionStorage.getItem('finished') == 'true') {
+            error = error_actionAfterFinish;
+        } else if (!data.hasOwnProperty('spsp_data')
+                || !data.spsp_data.hasOwnProperty('key')
+                || !data.spsp_data.hasOwnProperty('value')) {
+            error = error_messageFormat;
+        } else {
+            debugOut('received put message');
+			var currentValue = myAPI.LMSGetValue(data.spsp_data.key);
+			if (currentValue == data.spsp_data.value) {
+				error = '0';
+			} else {
+				myAPI.LMSSetValue(data.spsp_data.key, data.spsp_data.value);
+				error = myAPI.LMSGetLastError();
+				if (error == '0') {
+					myAPI.LMSCommit("");
+					error = myAPI.LMSGetLastError();
+				}
+			}
+        }
+    } else if (action == 'finish') {
+        if (sessionStorage.getItem('started') == null) {
+            error = error_actionBeforeStart;
+        } else if (sessionStorage.getItem('finished') == 'true') {
+            error = error_actionAfterFinish;
+        } else {
+            myAPI.LMSFinish("");
+            error = myAPI.LMSGetLastError();
+            debugOut('received finish message');
+            sessionStorage.setItem('finished', 'true');
+        }
+    } else if (action == 'unload') {
+        loadFrame('about:blank');
+    } else {
+        // unrecognized action, respond with error code
+        error = error_actionUnrecognized;
+    }
+    
+    // send response message
+    var messagePayload = { spsp_id : id, spsp_error : error, spsp_errortext: errortext, spsp_data: return_data };
+    debugOut('send message response to ' + senderOrigin + ': ' + JSON.stringify(messagePayload));
+    if (holderFrameRef === null) {
+        getFrameRef().contentWindow.postMessage(JSON.stringify(messagePayload), senderOrigin);
+    } else {
+        holderFrameRef.contentWindow.postMessage(JSON.stringify(messagePayload), senderOrigin);
+    }
+}
+
+function getMissingParams(dataFromLMS)
+{
+    var missingParams = '';
+
+    if (!queryString.customerid) {
+        missingParams += "&customerId=" + dataFromLMS.customerid;
+    }
+    if (!queryString.course_id) {
+        if (dataFromLMS.courseid) {
+            missingParams += "&course_id=" + dataFromLMS.courseid;
+        } else {
+            missingParams += "&course_id=" + dataFromLMS.course_id;
+        }
+    }
+    if (!queryString.olsa_cvs_value) {
+        missingParams += "&olsa_cvs_value=" + dataFromLMS.olsa_cvs_value;
+    }
+    if (!queryString.debug) {
+        missingParams += "&debug=" + dataFromLMS.debug;
+    }
+    if (!queryString.access_mode) {
+        missingParams += "&access_mode=" + dataFromLMS.access_mode;
+    }
+    if (!queryString.olsa_endpoint) {
+        missingParams += "&olsa_endpoint=" + dataFromLMS.olsa_endpoint;
+    }
+    if (location.search == '' && missingParams != '') {
+        missingParams = '?' + missingParams.slice(1);
+    }
+    
+    return missingParams;
+}
+
+var Util_startTime = (new Date()).getTime();
+
+function debugOut(txt) {
+    if (debug) {
+        txt = "SPSP: " + txt;
+        if (!window.console) {
+            var milliseconds = (new Date()).getTime() - Util_startTime;
+            window.setTimeout(function () {
+                throw new Error(milliseconds, txt);
+            }, 1);
+        } else {
+            console.log(txt);
+        }
+    }
+}
+
+function cleanUp() {
+    if (sessionStorage.getItem('finished') == null) {
+        myAPI.LMSFinish("");
+    }
+}
+</script>
+<title></title>
+<style type="text/css">
+#wrap { position: fixed; left: 0; width: 100%; top: 0; height: 100%; }
+#spsp_contentframe { display: block; width: 100%; height: 100%; }
+#spsp_apiholder { display: none; width: 0%; height: 0%; }
+</style>
+</head>
+<body onload="loadPage();">
+<div id="wrap">
+    <iframe src="about:blank" id="spsp_contentframe" frameborder="0"></iframe>
+</div>
+<div height="0">
+    <iframe src="about:blank" id="spsp_apiholder" frameborder="0"></iframe>
+</div>
+</body>
+</html>

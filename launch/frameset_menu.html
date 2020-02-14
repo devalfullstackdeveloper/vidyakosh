@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+/*
+ * Created by activelms Ltd.
+ * Date: 18/01/2007
+ * 
+ * Copyright 2006 All Rights Reserved
+ * activelms Ltd 
+ * St Johns Innovation Centre
+ * Cowley Road
+ * Cambridge 
+ * CB4 0WS England
+ * 
+ * Registered in England and Wales No: 5068195
+ * Use is subject to license terms.
+ */
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>Example Static LMS Frameset - Menu</title>
+	    <script language="JavaScript" type="text/javascript">
+	    
+	        // Window scoped variables - modified by header frame
+            this.window.str_UiFeatureList = "blank";
+            this.window.str_AjaxLogLevel = "NONE";
+            this.window.bool_NewWindowNotFrame = false;
+            
+			/**
+			 * Method to build a launch URL from field values generated
+			 * by a host LMS.
+			 *
+			 * @param String str_CourseID the package identifier to be resolved
+			 */
+			function doLaunchPlayer(str_CourseID){
+			
+				// LMS generates the following fields
+				var str_LearnerName = 	"Student,Joe"; 					// required
+				var str_LearnerID = 	"alphanumeric255"; 				// required
+				var str_SessionID = 	"generatedByLMS"; 				// optional
+				var str_DomainID = 		"mysql"; 				 		// required
+				var str_SkinID = 		"default"; 					    // optional
+				
+				// Replace with deployment URL of activelms SCORM Player
+				//var str_Root = "http://localhost/player";
+				var str_Root = ".";
+				var str_Url = str_Root + "/index.php";
+				
+				// For custom initialization through InitializeHandler
+				//var str_Url = str_Root + "/skins/Default.aspx"; 
+				
+				// Add URL parameters as query string
+				str_Url += "?learnerID=" + str_LearnerID;
+				str_Url += "&courseID=" + str_CourseID;
+				str_Url += "&sessionID=" + str_SessionID;
+				str_Url += "&skinID=" + str_SkinID;
+				str_Url += "&domainID=" + str_DomainID;
+				str_Url += "&uiFeatureList=" + this.window.str_UiFeatureList;
+				str_Url += "&ajaxLogLevel=" + this.window.str_AjaxLogLevel;
+
+				//alert("Launch URL is: \n\n" + str_Url);
+				// Launch
+				
+
+                if(this.window.bool_NewWindowNotFrame){
+                    var str_Name = "activelms Player";
+                    openWindow(str_Url, str_Name);
+                }
+                else{
+                    var str_Name = "SCOFrame";
+				    openFrame(str_Url, str_Name);
+				}
+			}
+
+			/**
+			 * Method to launch Player application in a named peer frame
+			 *
+			 * @param String str_Url the launch URL and parameter string
+			 * @param String str_Name the name of the target frame
+			 */
+			function openFrame(str_Url, str_Name){
+			    parent.frames[str_Name].location = str_Url;
+			}
+			
+			/**
+			 * Method to launch Player application in a named new window
+			 *
+			 * @param String str_Url the launch URL and parameter string
+			 * @param String str_Name the name of the target window
+			 */
+			function openWindow(str_Url, str_Name){
+				var win_Player = window.open(str_Url);
+				win_Player.focus();
+			}
+			
+	    </script>
+    </head>
+    <body bgcolor="#E2E2E2">
+        <div style="width:180px">
+        <p><b>Course Menu</b></p>
+            <ul>
+                <li>
+				    <a href="#" onclick="doLaunchPlayer('SCORM Detective 1.2');return false;">
+				        SCORM Detective 1.2
+				    </a>
+                </li>
+                <li>
+				    <a href="#" onclick="doLaunchPlayer('ADL Sequencing Essentials');return false;">
+				        ADL Sequencing Essentials
+				    </a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

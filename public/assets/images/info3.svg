@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 394.9 386.1" style="enable-background:new 0 0 394.9 386.1;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#EE3138;}
+	.st1{fill:#27BBAD;}
+	.st2{fill:#4A82C3;}
+	.st3{opacity:0.74;fill:url(#SVGID_1_);enable-background:new    ;}
+	.st4{fill:#F68D35;}
+	.st5{fill:#FFFFFF;}
+	.st6{enable-background:new    ;}
+	.st7{font-family:'TimesNewRomanPSMT';}
+	.st8{font-size:24.4872px;}
+</style>
+<path class="st0" d="M204.3,1v22.3c93,1.3,168.4,77.2,168.4,170.8c0,93.3-75.3,169.4-168.4,170.8v22.3
+	c105.4-1.3,190.6-87.1,190.6-192.8C394.9,88.7,309.6,2.3,204.3,1z"/>
+<path class="st1" d="M204.3,23.3v22.3C285,46.8,350.4,112.8,350.4,194S285,341.2,204.3,342.5v22.3c93-1.3,168.4-77.2,168.4-170.8
+	C372.7,100.5,297.3,24.3,204.3,23.3z"/>
+<path class="st2" d="M204.3,45.2v22.3c68.6,1.3,124.1,57.4,124.1,126.3s-55.5,124.9-124.1,126.3v22.3
+	c80.7-1.3,146.1-67.3,146.1-148.5C350.4,112.5,285,46.6,204.3,45.2z"/>
+<radialGradient id="SVGID_1_" cx="-769.9982" cy="721.4291" r="39.7986" gradientTransform="matrix(2.681 0 0 -2.681 2275.7651 2142.2515)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#000000"/>
+	<stop  offset="1" style="stop-color:#FFFFFF"/>
+</radialGradient>
+<path class="st3" d="M211.4,101.4c-59,0-106.7,48-106.7,106.7s48,106.7,106.7,106.7c59,0,106.7-48,106.7-106.7
+	C318.1,149.4,270.1,101.4,211.4,101.4z"/>
+<path class="st4" d="M204.3,67.5v22.3c56.3,1.3,101.9,47.5,101.9,104c0,56.6-45.6,102.9-101.9,104V320
+	c68.6-1.3,124.1-57.4,124.1-126.3C328.1,124.9,272.7,68.8,204.3,67.5z"/>
+<rect y="364.5" class="st0" width="207.8" height="22.3"/>
+<polyline class="st1" points="206.3,342.3 46.1,342.3 46.1,364.3 206.3,364.3 "/>
+<polyline class="st2" points="205.6,320 96.5,320 96.5,342.3 205.6,342.3 "/>
+<rect x="133.8" y="298.6" class="st4" width="72.4" height="22.3"/>
+<path class="st5" d="M201.9,89.3c-57.4,0-104.3,46.6-104.3,104.3c0,57.4,46.6,104.3,104.3,104.3c57.4,0,104.3-46.6,104.3-104.3
+	C306.2,136,259.2,89.3,201.9,89.3z"/>
+<text transform="matrix(1 0 0 1 142.7314 170.6666)" class="st6"><tspan x="0" y="0" class="st7 st8">A Learning </tspan><tspan x="-4.8" y="29.4" class="st7 st8">Management</tspan><tspan x="20" y="58.8" class="st7 st8">System </tspan></text>
+</svg>

@@ -1,0 +1,372 @@
+body{
+	background:url(../../images/default/activelms/interstitial-bg.gif) top left;
+	font: normal 13px tahoma,verdana,helvetica !important;
+	color:#003366;
+	margin: 10px;
+	padding-bottom:15px;
+}
+
+.col{
+	width:300px;
+	float:left;
+	margin-left:10px;
+}
+.header{
+	padding-top: 4px;
+}
+
+.block{
+	border:2px solid #B2D0F7;
+	background:white url(../../images/default/activelms/block-bg.gif) repeat-x;
+	margin-top:10px;
+	padding:15px;
+}
+
+.block-title{
+	color: #083772;
+	font-weight: bold;
+	padding: 4px;
+	padding-left: 8px;
+}
+.block-body{
+	padding:8px;
+	padding-top:2px;
+}
+.block-body b{
+	color:#333333;
+	font-size:11px;
+}
+.block-body em {
+	display:block;
+	margin-top:5px;
+	font-size:11px;
+   color:gray;
+	text-align:right;
+}
+
+#class .loading-indicator{
+	font-size:12px;
+	height:18px;
+}
+
+.loading-indicator {
+	font-size:8pt;
+	background-image: url("../../images/default/activelms/loading.gif");
+	background-repeat: no-repeat;
+	background-position:top left;
+	padding-left:20px;
+	height:18px;
+	text-align:left;
+}
+
+#loading{
+	position:absolute;
+	left:45%;
+	top:40%;
+	border:3px solid #B2D0F7;
+	background:white url(../../images/default/activelms/block-bg.gif) repeat-x;
+	padding:10px;
+	font:bold 14px verdana,tahoma,helvetica;
+	color:#003366;
+	width:150px;
+	text-align:center;
+	z-index : 10;
+}
+
+span.bold
+{
+    font-weight: bold;
+}
+
+/*
+Background image (adjusted -48px for to the "hover position") is 
+attached to the outer DIV element
+*/
+div.buttonStart {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/start_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+
+/*
+Link text is hidden because we are using images for links
+*/
+div.buttonStart span {
+	display: block;
+	display: none;
+}
+
+/*
+Same background image is attached to the inner A element as well 
+(in the "base position")
+*/
+div.buttonStart a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/start_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+/*
+The :hover state just changes the A's background to transparent making 
+the 'outer' background bellow visible. Thus, no background is being 
+switched and MSIE has no more reason to flicker.
+*/
+div.buttonStart a:hover  {
+	background-image: none;
+}
+
+/* Choice */
+div.buttonChoice {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/choice_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonChoice span {
+	display: block;
+	display: none;
+}
+div.buttonChoice a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/choice_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonChoice a:hover  {
+	background-image: none;
+}
+
+/* Exit All */
+div.buttonExitAll {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/exit_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonExitAll span {
+	display: block;
+	display: none;
+}
+div.buttonExitAll a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/exit_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonExitAll a:hover  {
+	background-image: none;
+}
+
+/* Resume All */
+div.buttonResumeAll {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/resume_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonResumeAll span {
+	display: block;
+	display: none;
+}
+div.buttonResumeAll a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/resume_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonResumeAll a:hover  {
+	background-image: none;
+}
+
+/* Suspend All */
+div.buttonSuspendAll {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/suspend_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonSuspendAll span {
+	display: block;
+	display: none;
+}
+div.buttonSuspendAll a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/suspend_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonSuspendAll a:hover  {
+	background-image: none;
+}
+
+/* Abandon All */
+div.buttonAbandonAll {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/abandon_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonAbandonAll span {
+	display: block;
+	display: none;
+}
+div.buttonAbandonAll a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/abandon_all_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonAbandonAll a:hover  {
+	background-image: none;
+}
+
+/* Window Close */
+div.buttonWindowClose {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/window_close_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonWindowClose span {
+	display: block;
+	display: none;
+}
+div.buttonWindowClose a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/window_close_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonWindowClose a:hover  {
+	background-image: none;
+}
+
+/* Ajax Error Exit All */
+div.buttonAjaxError {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/error_ajax_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonAjaxError span {
+	display: block;
+	display: none;
+}
+div.buttonAjaxError a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/error_ajax_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonAjaxError a:hover  {
+	background-image: none;
+}
+
+/* Web service call */
+div.buttonServiceCall {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/service_call_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonServiceCall span {
+	display: block;
+	display: none;
+}
+div.buttonServiceCall a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/service_call_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonServiceCall a:hover  {
+	background-image: none;
+}
+
+/* Previous */
+div.buttonPrevious {
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/previous_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonPrevious span {
+	display: block;
+	display: none;
+}
+div.buttonPrevious a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/previous_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonPrevious a:hover  {
+	background-image: none;
+}
+
+/* Current */
+div.buttonCurrent{
+	width: 48px;
+	height: 48px;
+	background-image: url(../../images/default/activelms/current_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+div.buttonCurrent span {
+	display: block;
+	display: none;
+}
+div.buttonCurrent a {
+	display: block;
+	width:100%; 
+	height:100%;
+	overflow:hidden;
+	background-image: url(../../images/default/activelms/current_48_combined.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+div.buttonCurrent a:hover  {
+	background-image: none;
+}

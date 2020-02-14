@@ -1,0 +1,215 @@
+<?xml version="1.0" ?>
+<manifest identifier="id_ehs_hsf_c97_sh_enus" version="1.2" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+<metadata>
+<schema>ADL SCORM</schema>
+<schemaversion>1.2</schemaversion>
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1">
+<general>
+<title>
+<langstring>PPE: Personal Protective Equipment 2.0</langstring>
+</title>
+<catalogentry>
+<catalog>SkillSoft Course Curricula</catalog>
+<entry>
+<langstring>ehs_hsf_c97_sh_enus</langstring>
+</entry>
+</catalogentry>
+<language>en-us</language>
+<description>
+<langstring>
+This course covers types, selection, maintenance, and care of personal protective equipment (PPE) in the workplace. The types of PPE covered in the course include hard hats; hand, foot, and eye protection; and body protection. The course also provides general guidelines on when respiratory, hearing, and fall protection are required. The content in this course is designed to comply with the intent of the applicable regulatory requirements. This course was developed with subject matter support provided by EnSafe Inc., a global professional services company focusing on engineering, environment, health and safety, and information technology. Please note, the course materials and content were current with the laws and regulations at the time of the last expert review, however, they may not reflect the most current legal developments. Nothing herein, or in the course materials, shall be construed as professional advice as to any particular situation with respect to compliance with legal statutes or requirements.
+</langstring>
+</description>
+<aggregationlevel>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">3</langstring>
+</value>
+</aggregationlevel>
+</general>
+<metametadata>
+<contribute>
+<role>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Creator</langstring>
+</value>
+</role>
+<centity>
+<vcard>
+Begin:vcard
+Fn:Skillsoft
+End:vcard
+</vcard>
+</centity>
+</contribute>
+<metadatascheme>ADL SCORM 1.2</metadatascheme>
+<language>en-us</language>
+</metametadata>
+<technical>
+<format>text/html</format>
+<location type="URI">stubCourse_scorm12.htm</location>
+<duration>
+<datetime>00:25</datetime>
+</duration>
+</technical>
+<educational>
+<typicallearningtime>
+<datetime>00:25</datetime>
+</typicallearningtime>
+<intendedenduserrole>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Learner</langstring>
+</value>
+</intendedenduserrole>
+</educational>
+<rights>
+<cost>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">no</langstring>
+</value>
+</cost>
+<copyrightandotherrestrictions>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">yes</langstring>
+</value>
+</copyrightandotherrestrictions>
+<description>
+<langstring>Copyright SkillSoft Corporation 2004</langstring>
+</description>
+</rights>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>PPE: Personal Protective Equipment 2.0</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>identify key facts about PPE and its use</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>identify safety features and considerations when using head, hand, and foot protection</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>identify characteristics of protective clothing materials and protective suits</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>select appropriate eye protection to protect against various hazards</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>identify general guidelines for when hearing, respiratory, and fall protection are required</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>identify the level of protection that a user is provided when wearing specific types of PPE</langstring>
+</description>
+</classification>
+<classification>
+<purpose>
+<source>
+<langstring xml:lang="x-none">LOMv1.0</langstring>
+</source>
+<value>
+<langstring xml:lang="x-none">Educational Objective</langstring>
+</value>
+</purpose>
+<description>
+<langstring>recognize proper donning and doffing techniques for PPE</langstring>
+</description>
+</classification>
+</lom>
+</metadata>
+<organizations default="default">
+<organization identifier="default">
+<title>PPE: Personal Protective Equipment 2.0</title>
+<item identifier="courseitem" identifierref="res_ehs_hsf_c97_sh_enus">
+<title>PPE: Personal Protective Equipment 2.0</title>
+<adlcp:datafromlms>||customerId=spusscorm||courseId=ehs_hsf_c97_sh_enus||olsa_cvs_value=zSj82sb1EREPnqz||debug=false||access_mode=scorm12||olsa_endpoint=https://us-scorm.skillwsa.com/olsa/ro||</adlcp:datafromlms>
+<adlcp:masteryscore>25</adlcp:masteryscore>
+</item>
+</organization>
+</organizations>
+<resources>
+<resource type="webcontent" adlcp:scormtype="sco" href="stubCourse_scorm12.htm?customerId=spusscorm&amp;course_id=ehs_hsf_c97_sh_enus&amp;olsa_cvs_value=zSj82sb1EREPnqz&amp;debug=false&amp;access_mode=scorm12&amp;olsa_endpoint=https://us-scorm.skillwsa.com/olsa/ro" identifier="res_ehs_hsf_c97_sh_enus">
+<file href="stubCourse_scorm12.htm" />
+</resource>
+</resources>
+</manifest>

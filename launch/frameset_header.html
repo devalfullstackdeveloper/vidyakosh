@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+/*
+ * Created by activelms Ltd.
+ * Date: 18/01/2007
+ * 
+ * Copyright 2006 All Rights Reserved
+ * activelms Ltd 
+ * St Johns Innovation Centre
+ * Cowley Road
+ * Cambridge 
+ * CB4 0WS England
+ * 
+ * Registered in England and Wales No: 5068195
+ * Use is subject to license terms.
+ */
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Example Static LMS Frameset - Header</title>
+	    <script language="JavaScript" type="text/javascript">
+	    
+	        // Sets the set of UI Features to launch with
+			function doSetUiFeatureList(str_Index){
+			    var str_UiFeatureList = undefined;
+			    switch(str_Index){
+			        case "0":
+			        str_UiFeatureList = "back,next,exit,toolbar";
+			        break;
+			        case "1":
+			        str_UiFeatureList = "blank";
+			        break;
+			        case "2":
+			        str_UiFeatureList = "back,next,exit,toolbar,tree";
+			        break;
+			    }
+                parent.frames['MenuFrame'].str_UiFeatureList = str_UiFeatureList;
+			}
+	    
+	        // Sets AJAX log level displayed in pop up window  for level>NONE
+			function doSetAjaxLogLevel(str_AjaxLogLevel){
+                parent.frames['MenuFrame'].str_AjaxLogLevel = str_AjaxLogLevel;
+			}
+			
+			// If true, then a new window is used for launch, not the child frame
+			function doSetLaunch(bool_NewWindowNotFrame){
+                parent.frames['MenuFrame'].bool_NewWindowNotFrame = bool_NewWindowNotFrame;
+			}
+			
+			// Unloads content from the child frame
+			function doUnloadPlayer(){
+			    parent.frames['SCOFrame'].location = "frameset_main.html";
+			}
+			
+
+	    </script>
+    </head>
+    <body bgcolor="#E2E2E2">
+        <form>
+        	<table border="1" cellspacing="2" cellpadding="2">
+                <tr>
+                    <td align="left" nowrap="nowrap">
+                     UI Feature List&nbsp;
+                     <select onchange="doSetUiFeatureList(this.options[this.options.selectedIndex].value);">
+                        <option value="0">Default</option>
+                        <option value="1" selected="selected">Blank</option>
+                        <option value="2">SCORM Conformance</option>
+                     </select>
+                    </td>
+                    <td align="left" nowrap="nowrap">
+                     AJAX Log Level&nbsp;
+                     <select onchange="doSetAjaxLogLevel(this.options[this.options.selectedIndex].value);">
+                        <option value="NONE" selected="selected">NONE</option>
+                        <option value="ERROR">ERROR</option>
+                        <option value="INFO">INFO</option>
+                        <option value="DEBUG">DEBUG</option>
+                     </select>
+                    </td>
+                    <td align="left" nowrap="nowrap">
+                     <input type="checkbox" onclick="doSetLaunch(this.checked);" />&nbsp;New Window
+                    </td>
+                    <td align="left" nowrap="nowrap">
+                        <input type="button" value=" Unload " onclick="doUnloadPlayer();" />
+                    </td>
+                    <td width="100%" align="right" nowrap="nowrap"><b>Example LMS Frameset</b></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
